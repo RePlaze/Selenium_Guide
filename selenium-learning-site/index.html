@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Learning Hub - Master Test Automation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i>
+                <span>Selenium Hub</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#tutorials" class="nav-link">Tutorials</a></li>
+                <li><a href="#challenges" class="nav-link">Challenges</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+            </ul>
+            <div class="nav-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search tutorials...">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Master Selenium Test Automation</h1>
+            <p class="hero-subtitle">Learn web automation with Java, Maven, and TestNG through interactive tutorials and hands-on challenges</p>
+            <div class="hero-buttons">
+                <a href="#tutorials" class="btn btn-primary">Start Learning</a>
+                <a href="#challenges" class="btn btn-secondary">Try Challenges</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="code-preview">
+                <div class="code-header">
+                    <span class="code-dot red"></span>
+                    <span class="code-dot yellow"></span>
+                    <span class="code-dot green"></span>
+                </div>
+                <pre><code class="language-java">@Test
+public void testGoogleSearch() {
+    WebDriver driver = new ChromeDriver();
+    driver.get("https://google.com");
+    driver.findElement(By.name("q"))
+          .sendKeys("Selenium WebDriver");
+    driver.findElement(By.name("btnK"))
+          .click();
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Paths -->
+    <section id="tutorials" class="learning-paths">
+        <div class="container">
+            <h2 class="section-title">Learning Paths</h2>
+            <p class="section-subtitle">Choose your journey to become a Selenium expert</p>
+            
+            <div class="path-grid">
+                <!-- Selenium Basics -->
+                <div class="path-card">
+                    <div class="path-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>Selenium Basics</h3>
+                    <p>Start with the fundamentals of web automation</p>
+                    <ul class="path-topics">
+                        <li><i class="fas fa-check"></i> WebDriver Setup</li>
+                        <li><i class="fas fa-check"></i> Finding Elements</li>
+                        <li><i class="fas fa-check"></i> Browser Actions</li>
+                        <li><i class="fas fa-check"></i> Waits & Synchronization</li>
+                    </ul>
+                    <a href="tutorials/basics/index.html" class="path-link">Start Path <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Maven Integration -->
+                <div class="path-card">
+                    <div class="path-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Maven & Project Setup</h3>
+                    <p>Configure and manage your test projects</p>
+                    <ul class="path-topics">
+                        <li><i class="fas fa-check"></i> Project Structure</li>
+                        <li><i class="fas fa-check"></i> Dependencies</li>
+                        <li><i class="fas fa-check"></i> Build Lifecycle</li>
+                        <li><i class="fas fa-check"></i> Plugins & Reports</li>
+                    </ul>
+                    <a href="tutorials/maven/index.html" class="path-link">Start Path <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- TestNG Framework -->
+                <div class="path-card">
+                    <div class="path-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>TestNG Framework</h3>
+                    <p>Build robust test suites with TestNG</p>
+                    <ul class="path-topics">
+                        <li><i class="fas fa-check"></i> Annotations</li>
+                        <li><i class="fas fa-check"></i> Test Configuration</li>
+                        <li><i class="fas fa-check"></i> Data Providers</li>
+                        <li><i class="fas fa-check"></i> Parallel Testing</li>
+                    </ul>
+                    <a href="tutorials/testng/index.html" class="path-link">Start Path <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Challenges -->
+    <section id="challenges" class="challenges">
+        <div class="container">
+            <h2 class="section-title">Practice Challenges</h2>
+            <p class="section-subtitle">Apply your knowledge with real-world scenarios</p>
+            
+            <div class="challenge-list">
+                <div class="challenge-item">
+                    <div class="challenge-header">
+                        <span class="challenge-level beginner">Beginner</span>
+                        <h4>Login Form Automation</h4>
+                    </div>
+                    <p>Automate a login form with proper element handling and assertions</p>
+                    <div class="challenge-tags">
+                        <span class="tag">WebDriver</span>
+                        <span class="tag">Locators</span>
+                        <span class="tag">Assertions</span>
+                    </div>
+                    <a href="challenges/login-form.html" class="challenge-start">Start Challenge</a>
+                </div>
+
+                <div class="challenge-item">
+                    <div class="challenge-header">
+                        <span class="challenge-level intermediate">Intermediate</span>
+                        <h4>Dynamic Content Handling</h4>
+                    </div>
+                    <p>Work with AJAX calls, dynamic elements, and explicit waits</p>
+                    <div class="challenge-tags">
+                        <span class="tag">Waits</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">AJAX</span>
+                    </div>
+                    <a href="challenges/dynamic-content.html" class="challenge-start">Start Challenge</a>
+                </div>
+
+                <div class="challenge-item">
+                    <div class="challenge-header">
+                        <span class="challenge-level advanced">Advanced</span>
+                        <h4>E2E Shopping Cart Test</h4>
+                    </div>
+                    <p>Build a complete end-to-end test suite for an e-commerce application</p>
+                    <div class="challenge-tags">
+                        <span class="tag">Page Objects</span>
+                        <span class="tag">TestNG</span>
+                        <span class="tag">Reports</span>
+                    </div>
+                    <a href="challenges/shopping-cart.html" class="challenge-start">Start Challenge</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2 class="section-title">Quick Resources</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <i class="fas fa-book"></i>
+                    <h4>Documentation</h4>
+                    <p>Official Selenium docs and API reference</p>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-code"></i>
+                    <h4>Code Examples</h4>
+                    <p>Ready-to-use snippets and patterns</p>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-tools"></i>
+                    <h4>Best Practices</h4>
+                    <p>Industry standards and conventions</p>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h4>FAQ & Tips</h4>
+                    <p>Common issues and solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Selenium Learning Hub. Built with ❤️ for test automation enthusiasts.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+</body>
+</html>

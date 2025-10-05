@@ -1,0 +1,511 @@
+/* Tutorial-specific styles */
+
+/* Tutorial Hero */
+.tutorial-hero {
+    margin-top: 80px;
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.breadcrumb a:hover {
+    opacity: 0.7;
+}
+
+.breadcrumb i {
+    font-size: var(--font-size-xs);
+}
+
+.tutorial-title {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.tutorial-description {
+    font-size: var(--font-size-xl);
+    opacity: 0.95;
+    margin-bottom: var(--spacing-lg);
+}
+
+.tutorial-meta {
+    display: flex;
+    gap: var(--spacing-xl);
+    font-size: var(--font-size-sm);
+}
+
+.tutorial-meta span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* Tutorial Layout */
+.tutorial-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-2xl);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-2xl);
+}
+
+/* Sidebar */
+.tutorial-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.sidebar-content {
+    background: var(--gray-100);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+}
+
+.sidebar-content h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.toc {
+    list-style: none;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.toc-link {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--gray-700);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    font-size: var(--font-size-sm);
+}
+
+.toc-link:hover {
+    background: white;
+    color: var(--primary-color);
+}
+
+.toc-link.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Progress Tracker */
+.progress-tracker {
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--gray-300);
+}
+
+.progress-tracker h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+}
+
+.progress-bar {
+    height: 8px;
+    background: var(--gray-300);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--spacing-sm);
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--success-color);
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+}
+
+/* Tutorial Content */
+.tutorial-content {
+    max-width: 800px;
+}
+
+.tutorial-section {
+    margin-bottom: var(--spacing-3xl);
+    scroll-margin-top: 100px;
+}
+
+.tutorial-section h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--gray-900);
+}
+
+.tutorial-section h3 {
+    font-size: var(--font-size-xl);
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--gray-800);
+}
+
+.tutorial-section p {
+    line-height: 1.7;
+    color: var(--gray-700);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Info Boxes */
+.info-box, .tip-box, .warning-box, .prerequisite-box {
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.info-box {
+    background: #E3F2FD;
+    border-left: 4px solid var(--primary-color);
+}
+
+.tip-box {
+    background: #F3E5F5;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.warning-box {
+    background: #FFF3E0;
+    border-left: 4px solid var(--warning-color);
+}
+
+.prerequisite-box {
+    background: var(--gray-100);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.info-box i, .tip-box i, .warning-box i {
+    font-size: var(--font-size-xl);
+    flex-shrink: 0;
+}
+
+/* Feature List */
+.feature-list {
+    list-style: none;
+    margin-bottom: var(--spacing-xl);
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    color: var(--gray-700);
+}
+
+.feature-list i {
+    color: var(--success-color);
+}
+
+/* Code Examples */
+.code-example {
+    margin-bottom: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.code-header {
+    background: var(--gray-800);
+    color: white;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-sm);
+}
+
+.copy-btn {
+    background: transparent;
+    border: none;
+    color: var(--gray-400);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    color: white;
+    background: var(--gray-700);
+}
+
+.code-example pre {
+    margin: 0;
+    background: var(--gray-900);
+}
+
+.code-example code {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+/* Code Wrapper for Copy Button */
+.code-wrapper {
+    position: relative;
+    margin-bottom: var(--spacing-xl);
+}
+
+.code-wrapper .copy-button {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background: var(--gray-700);
+    color: white;
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.code-wrapper:hover .copy-button {
+    opacity: 1;
+}
+
+.copy-button:hover {
+    background: var(--gray-600);
+}
+
+/* Exercise Box */
+.exercise-box {
+    background: #E8F5E9;
+    border: 2px solid var(--success-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.exercise-box h4 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--success-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.exercise-box ol {
+    margin-left: var(--spacing-lg);
+    color: var(--gray-700);
+}
+
+/* Locator Grid */
+.locator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.locator-card {
+    background: var(--gray-100);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+}
+
+.locator-card h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary-color);
+}
+
+.locator-card p {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    margin-bottom: var(--spacing-sm);
+}
+
+.locator-card pre {
+    margin: 0;
+    background: var(--gray-900);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm);
+}
+
+/* Best Practice Box */
+.best-practice-box {
+    background: #F5F5F5;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.best-practice-box ul {
+    list-style: none;
+}
+
+.best-practice-box li {
+    margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-lg);
+    position: relative;
+}
+
+.best-practice-box li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Wait Comparison */
+.wait-comparison {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.wait-type {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+}
+
+.wait-type h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.wait-type p {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.pros-cons {
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-sm);
+}
+
+.pros-cons .pro {
+    color: var(--success-color);
+}
+
+.pros-cons .con {
+    color: var(--danger-color);
+}
+
+/* Practice Grid */
+.practice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.practice-card {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: var(--gray-100);
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.practice-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.practice-card i {
+    font-size: var(--font-size-2xl);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.practice-card h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-sm);
+}
+
+.practice-card p {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+}
+
+/* Next Steps */
+.next-steps {
+    background: var(--gray-100);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    margin-top: var(--spacing-3xl);
+}
+
+.next-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.next-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: var(--spacing-xl);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.next-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.next-card i {
+    font-size: var(--font-size-3xl);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.next-card h4 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+}
+
+.next-card p {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .tutorial-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .tutorial-sidebar {
+        position: relative;
+        top: 0;
+        margin-bottom: var(--spacing-2xl);
+    }
+    
+    .locator-grid,
+    .wait-comparison {
+        grid-template-columns: 1fr;
+    }
+}

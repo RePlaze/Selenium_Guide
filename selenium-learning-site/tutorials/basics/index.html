@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium Basics - Learn WebDriver Fundamentals</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/tutorial.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i>
+                <span>Selenium Hub</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link active">Tutorials</a></li>
+                <li><a href="../../index.html#challenges" class="nav-link">Challenges</a></li>
+                <li><a href="../../index.html#resources" class="nav-link">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Tutorial Header -->
+    <section class="tutorial-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../../index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../../index.html#tutorials">Tutorials</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Selenium Basics</span>
+            </div>
+            <h1 class="tutorial-title">Selenium WebDriver Basics</h1>
+            <p class="tutorial-description">Master the fundamentals of web automation with Selenium WebDriver</p>
+            <div class="tutorial-meta">
+                <span><i class="fas fa-clock"></i> 2-3 hours</span>
+                <span><i class="fas fa-signal"></i> Beginner</span>
+                <span><i class="fas fa-code"></i> Java</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorial Content -->
+    <div class="tutorial-layout">
+        <!-- Sidebar -->
+        <aside class="tutorial-sidebar">
+            <div class="sidebar-content">
+                <h3>Table of Contents</h3>
+                <ul class="toc">
+                    <li><a href="#introduction" class="toc-link active">1. Introduction</a></li>
+                    <li><a href="#setup" class="toc-link">2. Environment Setup</a></li>
+                    <li><a href="#first-script" class="toc-link">3. Your First Script</a></li>
+                    <li><a href="#locators" class="toc-link">4. Finding Elements</a></li>
+                    <li><a href="#actions" class="toc-link">5. Browser Actions</a></li>
+                    <li><a href="#waits" class="toc-link">6. Waits & Synchronization</a></li>
+                    <li><a href="#best-practices" class="toc-link">7. Best Practices</a></li>
+                </ul>
+                <div class="progress-tracker">
+                    <h4>Your Progress</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <p class="progress-text">0% Complete</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="tutorial-content">
+            <!-- Section 1: Introduction -->
+            <section id="introduction" class="tutorial-section">
+                <h2>1. Introduction to Selenium WebDriver</h2>
+                
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Selenium WebDriver is a powerful tool for automating web browsers. It provides a programming interface to create and execute test scripts for web applications.</p>
+                </div>
+
+                <h3>What You'll Learn</h3>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Set up Selenium WebDriver with Java</li>
+                    <li><i class="fas fa-check-circle"></i> Write your first automation script</li>
+                    <li><i class="fas fa-check-circle"></i> Locate web elements using various strategies</li>
+                    <li><i class="fas fa-check-circle"></i> Perform common browser actions</li>
+                    <li><i class="fas fa-check-circle"></i> Handle synchronization issues with waits</li>
+                </ul>
+
+                <h3>Prerequisites</h3>
+                <div class="prerequisite-box">
+                    <ul>
+                        <li>Basic knowledge of Java programming</li>
+                        <li>JDK 8 or higher installed</li>
+                        <li>An IDE (IntelliJ IDEA, Eclipse, or VS Code)</li>
+                        <li>Chrome or Firefox browser</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 2: Environment Setup -->
+            <section id="setup" class="tutorial-section">
+                <h2>2. Environment Setup</h2>
+                
+                <h3>Step 1: Create a Maven Project</h3>
+                <p>First, create a new Maven project in your IDE. This will help manage dependencies easily.</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>pom.xml</span>
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <pre><code class="language-xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    
+    &lt;groupId&gt;com.seleniumhub&lt;/groupId&gt;
+    &lt;artifactId&gt;selenium-basics&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+    
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;11&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;11&lt;/maven.compiler.target&gt;
+    &lt;/properties&gt;
+    
+    &lt;dependencies&gt;
+        &lt;!-- Selenium WebDriver --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+            &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+            &lt;version&gt;4.15.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        
+        &lt;!-- WebDriverManager for automatic driver management --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.github.bonigarcia&lt;/groupId&gt;
+            &lt;artifactId&gt;webdrivermanager&lt;/artifactId&gt;
+            &lt;version&gt;5.6.2&lt;/version&gt;
+        &lt;/dependency&gt;
+        
+        &lt;!-- TestNG --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.testng&lt;/groupId&gt;
+            &lt;artifactId&gt;testng&lt;/artifactId&gt;
+            &lt;version&gt;7.8.0&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;</code></pre>
+                </div>
+
+                <h3>Step 2: Understanding WebDriverManager</h3>
+                <p>WebDriverManager automatically downloads and manages driver executables (chromedriver, geckodriver, etc.) for you.</p>
+                
+                <div class="tip-box">
+                    <i class="fas fa-lightbulb"></i>
+                    <p><strong>Pro Tip:</strong> WebDriverManager eliminates the need to manually download and set up driver executables, saving time and preventing version mismatch issues.</p>
+                </div>
+            </section>
+
+            <!-- Section 3: First Script -->
+            <section id="first-script" class="tutorial-section">
+                <h2>3. Your First Selenium Script</h2>
+                
+                <p>Let's write a simple script that opens Google and performs a search.</p>
+                
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>FirstSeleniumTest.java</span>
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <pre><code class="language-java">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class FirstSeleniumTest {
+    public static void main(String[] args) {
+        // Setup ChromeDriver using WebDriverManager
+        WebDriverManager.chromedriver().setup();
+        
+        // Create a new instance of ChromeDriver
+        WebDriver driver = new ChromeDriver();
+        
+        try {
+            // Navigate to Google
+            driver.get("https://www.google.com");
+            
+            // Find the search box
+            WebElement searchBox = driver.findElement(By.name("q"));
+            
+            // Type in the search box
+            searchBox.sendKeys("Selenium WebDriver");
+            
+            // Submit the search
+            searchBox.submit();
+            
+            // Wait a bit to see the results
+            Thread.sleep(3000);
+            
+            // Print the page title
+            System.out.println("Page title is: " + driver.getTitle());
+            
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            // Close the browser
+            driver.quit();
+        }
+    }
+}</code></pre>
+                </div>
+
+                <div class="exercise-box">
+                    <h4><i class="fas fa-tasks"></i> Try It Yourself</h4>
+                    <p>Modify the script to:</p>
+                    <ol>
+                        <li>Search for "TestNG Framework" instead</li>
+                        <li>Click on the first search result</li>
+                        <li>Print the URL of the page you land on</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Section 4: Locators -->
+            <section id="locators" class="tutorial-section">
+                <h2>4. Finding Elements - Locator Strategies</h2>
+                
+                <p>Selenium provides multiple ways to locate elements on a web page. Choosing the right locator strategy is crucial for stable tests.</p>
+                
+                <h3>Common Locator Types</h3>
+                
+                <div class="locator-grid">
+                    <div class="locator-card">
+                        <h4>By ID</h4>
+                        <p>Most reliable and fastest</p>
+                        <pre><code class="language-java">driver.findElement(By.id("submit-button"))</code></pre>
+                    </div>
+                    
+                    <div class="locator-card">
+                        <h4>By Name</h4>
+                        <p>Good for form elements</p>
+                        <pre><code class="language-java">driver.findElement(By.name("username"))</code></pre>
+                    </div>
+                    
+                    <div class="locator-card">
+                        <h4>By Class Name</h4>
+                        <p>For elements with specific classes</p>
+                        <pre><code class="language-java">driver.findElement(By.className("btn-primary"))</code></pre>
+                    </div>
+                    
+                    <div class="locator-card">
+                        <h4>By CSS Selector</h4>
+                        <p>Powerful and flexible</p>
+                        <pre><code class="language-java">driver.findElement(By.cssSelector("div.container > input[type='text']"))</code></pre>
+                    </div>
+                    
+                    <div class="locator-card">
+                        <h4>By XPath</h4>
+                        <p>Can locate any element</p>
+                        <pre><code class="language-java">driver.findElement(By.xpath("//button[text()='Submit']"))</code></pre>
+                    </div>
+                    
+                    <div class="locator-card">
+                        <h4>By Link Text</h4>
+                        <p>For anchor tags</p>
+                        <pre><code class="language-java">driver.findElement(By.linkText("Click Here"))</code></pre>
+                    </div>
+                </div>
+
+                <h3>Locator Best Practices</h3>
+                <div class="best-practice-box">
+                    <ul>
+                        <li><strong>Priority Order:</strong> ID > Name > CSS > XPath</li>
+                        <li><strong>Avoid:</strong> Absolute XPath, dynamic IDs, index-based locators</li>
+                        <li><strong>Use:</strong> Unique attributes, data-testid attributes, relative XPath</li>
+                        <li><strong>Test:</strong> Verify locators work across different browsers</li>
+                    </ul>
+                </div>
+
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>LocatorExamples.java</span>
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <pre><code class="language-java">import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import java.util.List;
+
+public class LocatorExamples {
+    public static void main(String[] args) {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        
+        try {
+            driver.get("https://example.com/form");
+            
+            // Finding single element
+            WebElement emailField = driver.findElement(By.id("email"));
+            emailField.sendKeys("test@example.com");
+            
+            // Finding multiple elements
+            List<WebElement> buttons = driver.findElements(By.tagName("button"));
+            System.out.println("Found " + buttons.size() + " buttons");
+            
+            // Using CSS Selector with pseudo-classes
+            WebElement firstInput = driver.findElement(
+                By.cssSelector("form input:first-child")
+            );
+            
+            // Using XPath with conditions
+            WebElement submitButton = driver.findElement(
+                By.xpath("//button[@type='submit' and contains(text(), 'Submit')]")
+            );
+            
+            // Chaining locators (finding element within element)
+            WebElement form = driver.findElement(By.id("signup-form"));
+            WebElement formSubmitBtn = form.findElement(By.cssSelector("button[type='submit']"));
+            
+        } finally {
+            driver.quit();
+        }
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Section 5: Browser Actions -->
+            <section id="actions" class="tutorial-section">
+                <h2>5. Common Browser Actions</h2>
+                
+                <p>Selenium provides various methods to interact with web elements and control the browser.</p>
+                
+                <h3>Element Interactions</h3>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>ElementActions.java</span>
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <pre><code class="language-java">import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class ElementActions {
+    public static void main(String[] args) {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        
+        try {
+            driver.get("https://example.com/demo");
+            
+            // Click action
+            WebElement button = driver.findElement(By.id("submit-btn"));
+            button.click();
+            
+            // Type text
+            WebElement textField = driver.findElement(By.name("username"));
+            textField.clear(); // Clear existing text
+            textField.sendKeys("john.doe");
+            
+            // Select from dropdown
+            WebElement dropdown = driver.findElement(By.id("country"));
+            Select select = new Select(dropdown);
+            select.selectByVisibleText("United States");
+            select.selectByValue("US");
+            select.selectByIndex(0);
+            
+            // Checkbox and Radio buttons
+            WebElement checkbox = driver.findElement(By.id("terms"));
+            if (!checkbox.isSelected()) {
+                checkbox.click();
+            }
+            
+            // Get element properties
+            String buttonText = button.getText();
+            String inputValue = textField.getAttribute("value");
+            boolean isDisplayed = button.isDisplayed();
+            boolean isEnabled = button.isEnabled();
+            
+            // Submit form
+            WebElement form = driver.findElement(By.tagName("form"));
+            form.submit();
+            
+        } finally {
+            driver.quit();
+        }
+    }
+}</code></pre>
+                </div>
+
+                <h3>Browser Navigation</h3>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>BrowserNavigation.java</span>
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <pre><code class="language-java">// Navigate to URL
+driver.get("https://www.example.com");
+driver.navigate().to("https://www.example.com"); // Alternative
+
+// Browser navigation
+driver.navigate().back();    // Go back
+driver.navigate().forward(); // Go forward
+driver.navigate().refresh(); // Refresh page
+
+// Window management
+driver.manage().window().maximize();
+driver.manage().window().fullscreen();
+driver.manage().window().setSize(new Dimension(1024, 768));
+
+// Get page information
+String title = driver.getTitle();
+String url = driver.getCurrentUrl();
+String pageSource = driver.getPageSource();
+
+// Handle multiple windows/tabs
+String originalWindow = driver.getWindowHandle();
+driver.switchTo().newWindow(WindowType.TAB);
+driver.switchTo().window(originalWindow);
+
+// Take screenshot
+File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+FileUtils.copyFile(screenshot, new File("screenshot.png"));</code></pre>
+                </div>
+            </section>
+
+            <!-- Section 6: Waits -->
+            <section id="waits" class="tutorial-section">
+                <h2>6. Waits & Synchronization</h2>
+                
+                <p>Proper synchronization is crucial for stable test automation. Selenium provides different types of waits to handle dynamic content.</p>
+                
+                <h3>Types of Waits</h3>
+                
+                <div class="wait-comparison">
+                    <div class="wait-type">
+                        <h4>Implicit Wait</h4>
+                        <p>Global timeout for all elements</p>
+                        <pre><code class="language-java">driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));</code></pre>
+                        <div class="pros-cons">
+                            <p class="pro">✓ Simple to implement</p>
+                            <p class="con">✗ Applies to all elements</p>
+                        </div>
+                    </div>
+                    
+                    <div class="wait-type">
+                        <h4>Explicit Wait</h4>
+                        <p>Wait for specific conditions</p>
+                        <pre><code class="language-java">WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("result")));</code></pre>
+                        <div class="pros-cons">
+                            <p class="pro">✓ Flexible and precise</p>
+                            <p class="pro">✓ Multiple conditions</p>
+                        </div>
+                    </div>
+                    
+                    <div class="wait-type">
+                        <h4>Fluent Wait</h4>
+                        <p>Customizable polling and exceptions</p>
+                        <pre><code class="language-java">Wait<WebDriver> wait = new FluentWait<>(driver)
+    .withTimeout(Duration.ofSeconds(30))
+    .pollingEvery(Duration.ofSeconds(5))
+    .ignoring(NoSuchElementException.class);</code></pre>
+                        <div class="pros-cons">
+                            <p class="pro">✓ Most flexible</p>
+                            <p class="con">✗ More complex</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Common Wait Conditions</h3>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>WaitExamples.java</span>
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <pre><code class="language-java">import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.time.Duration;
+
+public class WaitExamples {
+    public static void waitExamples(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        
+        // Wait for element to be visible
+        WebElement element = wait.until(
+            ExpectedConditions.visibilityOfElementLocated(By.id("loading-complete"))
+        );
+        
+        // Wait for element to be clickable
+        WebElement button = wait.until(
+            ExpectedConditions.elementToBeClickable(By.id("submit-button"))
+        );
+        
+        // Wait for text to be present
+        wait.until(
+            ExpectedConditions.textToBePresentInElementLocated(
+                By.id("status"), "Success"
+            )
+        );
+        
+        // Wait for element to disappear
+        wait.until(
+            ExpectedConditions.invisibilityOfElementLocated(By.id("spinner"))
+        );
+        
+        // Wait for alert
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        
+        // Custom condition
+        wait.until(driver -> {
+            WebElement elem = driver.findElement(By.id("dynamic-content"));
+            return elem.getText().length() > 0;
+        });
+        
+        // Wait for page load (JavaScript)
+        wait.until(webDriver -> 
+            ((JavascriptExecutor) webDriver)
+                .executeScript("return document.readyState")
+                .equals("complete")
+        );
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Section 7: Best Practices -->
+            <section id="best-practices" class="tutorial-section">
+                <h2>7. Best Practices</h2>
+                
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Use Page Object Model</h4>
+                        <p>Separate test logic from page structure for maintainability</p>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Smart Waits</h4>
+                        <p>Use explicit waits instead of Thread.sleep()</p>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <i class="fas fa-search"></i>
+                        <h4>Reliable Locators</h4>
+                        <p>Use stable attributes and avoid brittle XPath</p>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <i class="fas fa-broom"></i>
+                        <h4>Clean Up</h4>
+                        <p>Always quit the driver in finally block or @AfterMethod</p>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h4>Exception Handling</h4>
+                        <p>Handle common exceptions gracefully</p>
+                    </div>
+                    
+                    <div class="practice-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h4>Logging</h4>
+                        <p>Add meaningful logs for debugging</p>
+                    </div>
+                </div>
+
+                <h3>Example: Page Object Model</h3>
+                <div class="code-example">
+                    <div class="code-header">
+                        <span>LoginPage.java</span>
+                        <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                    </div>
+                    <pre><code class="language-java">public class LoginPage {
+    private WebDriver driver;
+    private WebDriverWait wait;
+    
+    // Locators
+    private By usernameField = By.id("username");
+    private By passwordField = By.id("password");
+    private By loginButton = By.id("login-btn");
+    private By errorMessage = By.className("error-msg");
+    
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+    
+    public void enterUsername(String username) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField))
+            .sendKeys(username);
+    }
+    
+    public void enterPassword(String password) {
+        driver.findElement(passwordField).sendKeys(password);
+    }
+    
+    public void clickLogin() {
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton))
+            .click();
+    }
+    
+    public boolean isErrorDisplayed() {
+        try {
+            return driver.findElement(errorMessage).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+    
+    public HomePage login(String username, String password) {
+        enterUsername(username);
+        enterPassword(password);
+        clickLogin();
+        return new HomePage(driver);
+    }
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- Next Steps -->
+            <section class="next-steps">
+                <h2>What's Next?</h2>
+                <div class="next-cards">
+                    <a href="../maven/index.html" class="next-card">
+                        <i class="fas fa-cube"></i>
+                        <h4>Maven Integration</h4>
+                        <p>Learn to manage your Selenium projects with Maven</p>
+                    </a>
+                    <a href="../testng/index.html" class="next-card">
+                        <i class="fas fa-flask"></i>
+                        <h4>TestNG Framework</h4>
+                        <p>Build robust test suites with TestNG</p>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Selenium Learning Hub. Keep automating!</p>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/tutorial.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-xml-doc.min.js"></script>
+</body>
+</html>
