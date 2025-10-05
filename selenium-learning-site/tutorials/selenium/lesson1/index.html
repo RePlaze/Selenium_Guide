@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Getting Started with Selenium - Selenium Hub</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i>
+                <span>Selenium Hub</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html" class="nav-link active">Learning Path</a></li>
+                <li><a href="../../../index.html#challenges" class="nav-link">Challenges</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Lesson Header -->
+    <section class="lesson-header">
+        <div class="container">
+            <div class="lesson-nav">
+                <a href="../index.html" class="back-link">
+                    <i class="fas fa-arrow-left"></i> Back to Learning Path
+                </a>
+                <div class="lesson-progress">
+                    <span>Lesson 1 of 6</span>
+                    <div class="progress-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+            <h1>Getting Started with Selenium</h1>
+            <p class="lesson-intro">Set up your development environment and write your first Selenium script</p>
+            <div class="lesson-meta">
+                <span><i class="fas fa-clock"></i> 45 minutes</span>
+                <span><i class="fas fa-laptop-code"></i> 2 Exercises</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lesson Content -->
+    <section class="lesson-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <!-- Introduction -->
+                <div class="lesson-section">
+                    <h2>Welcome to Your Selenium Journey!</h2>
+                    <p>In this first lesson, we'll set up everything you need to start automating web browsers with Selenium WebDriver. By the end of this lesson, you'll have a working environment and your first automation script running!</p>
+                    
+                    <div class="objectives-box">
+                        <h3><i class="fas fa-bullseye"></i> Learning Objectives</h3>
+                        <ul>
+                            <li>Install Java and set up your development environment</li>
+                            <li>Create a Maven project for Selenium</li>
+                            <li>Understand WebDriver basics</li>
+                            <li>Write and run your first Selenium script</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 1: Prerequisites -->
+                <div class="lesson-section">
+                    <h2>Step 1: Check Prerequisites</h2>
+                    <p>Before we begin, let's make sure you have everything installed:</p>
+                    
+                    <div class="checklist">
+                        <label class="checklist-item">
+                            <input type="checkbox" class="prereq-check">
+                            <span>Java JDK 8 or higher installed</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="prereq-check">
+                            <span>An IDE (IntelliJ IDEA, Eclipse, or VS Code)</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="prereq-check">
+                            <span>Chrome or Firefox browser</span>
+                        </label>
+                        <label class="checklist-item">
+                            <input type="checkbox" class="prereq-check">
+                            <span>Basic knowledge of Java</span>
+                        </label>
+                    </div>
+
+                    <div class="tip-box">
+                        <i class="fas fa-lightbulb"></i>
+                        <div>
+                            <h4>Quick Check</h4>
+                            <p>Open your terminal and run <code>java -version</code> to verify Java is installed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Create Maven Project -->
+                <div class="lesson-section">
+                    <h2>Step 2: Create Your First Maven Project</h2>
+                    <p>Maven helps us manage dependencies and build our project. Let's create a new Maven project:</p>
+                    
+                    <div class="step-by-step">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Open your IDE</h4>
+                                <p>Launch IntelliJ IDEA, Eclipse, or your preferred IDE</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Create New Maven Project</h4>
+                                <p>File → New → Project → Maven Project</p>
+                            </div>
+                        </div>
+                        
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Set Project Details</h4>
+                                <p>Group ID: <code>com.seleniumhub</code><br>
+                                Artifact ID: <code>selenium-basics</code></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Add Dependencies -->
+                <div class="lesson-section">
+                    <h2>Step 3: Configure Maven Dependencies</h2>
+                    <p>Now let's add Selenium to our project. Open your <code>pom.xml</code> file and add these dependencies:</p>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>pom.xml</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                        </div>
+                        <pre><code class="language-xml">&lt;project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    
+    &lt;groupId&gt;com.seleniumhub&lt;/groupId&gt;
+    &lt;artifactId&gt;selenium-basics&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0&lt;/version&gt;
+    
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;11&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;11&lt;/maven.compiler.target&gt;
+        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;/properties&gt;
+    
+    &lt;dependencies&gt;
+        &lt;!-- Selenium WebDriver --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.seleniumhq.selenium&lt;/groupId&gt;
+            &lt;artifactId&gt;selenium-java&lt;/artifactId&gt;
+            &lt;version&gt;4.15.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        
+        &lt;!-- WebDriverManager - Automatically manages driver binaries --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.github.bonigarcia&lt;/groupId&gt;
+            &lt;artifactId&gt;webdrivermanager&lt;/artifactId&gt;
+            &lt;version&gt;5.6.2&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/project&gt;</code></pre>
+                    </div>
+
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <h4>What's WebDriverManager?</h4>
+                            <p>WebDriverManager automatically downloads and manages browser drivers (chromedriver, geckodriver, etc.) for you. No more manual downloads!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: First Script -->
+                <div class="lesson-section">
+                    <h2>Step 4: Write Your First Selenium Script</h2>
+                    <p>Let's create a simple script that opens Google and searches for something:</p>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>FirstSeleniumScript.java</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                        </div>
+                        <pre><code class="language-java">package com.seleniumhub;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class FirstSeleniumScript {
+    public static void main(String[] args) {
+        // Step 1: Setup ChromeDriver using WebDriverManager
+        WebDriverManager.chromedriver().setup();
+        
+        // Step 2: Create a new instance of ChromeDriver
+        WebDriver driver = new ChromeDriver();
+        
+        try {
+            // Step 3: Navigate to Google
+            driver.get("https://www.google.com");
+            
+            // Step 4: Print the page title
+            System.out.println("Page title is: " + driver.getTitle());
+            
+            // Step 5: Wait a bit to see the browser
+            Thread.sleep(3000); // 3 seconds
+            
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            // Step 6: Close the browser
+            driver.quit();
+        }
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="code-explanation">
+                        <h4>Code Breakdown:</h4>
+                        <ul>
+                            <li><code>WebDriverManager.chromedriver().setup()</code> - Downloads and sets up ChromeDriver</li>
+                            <li><code>new ChromeDriver()</code> - Creates a new Chrome browser instance</li>
+                            <li><code>driver.get()</code> - Navigates to a URL</li>
+                            <li><code>driver.getTitle()</code> - Gets the page title</li>
+                            <li><code>driver.quit()</code> - Closes the browser and cleans up</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Step 5: Run the Script -->
+                <div class="lesson-section">
+                    <h2>Step 5: Run Your Script</h2>
+                    
+                    <div class="run-instructions">
+                        <h4>To run your script:</h4>
+                        <ol>
+                            <li>Right-click on the Java file in your IDE</li>
+                            <li>Select "Run 'FirstSeleniumScript.main()'"</li>
+                            <li>Watch as Chrome opens automatically!</li>
+                            <li>See the page title printed in your console</li>
+                        </ol>
+                    </div>
+
+                    <div class="expected-output">
+                        <h4>Expected Output:</h4>
+                        <pre><code>Page title is: Google</code></pre>
+                    </div>
+                </div>
+
+                <!-- Practice Exercise 1 -->
+                <div class="lesson-section exercise-section">
+                    <h2><i class="fas fa-laptop-code"></i> Practice Exercise 1</h2>
+                    <div class="exercise-card">
+                        <h3>Modify the Script</h3>
+                        <p>Update your script to:</p>
+                        <ol>
+                            <li>Navigate to "https://www.selenium.dev" instead of Google</li>
+                            <li>Print both the page title AND the current URL</li>
+                            <li>Wait for 5 seconds before closing</li>
+                        </ol>
+                        
+                        <div class="exercise-hints">
+                            <button class="hint-toggle">Show Hints</button>
+                            <div class="hints-content" style="display: none;">
+                                <p><strong>Hint 1:</strong> Use <code>driver.getCurrentUrl()</code> to get the URL</p>
+                                <p><strong>Hint 2:</strong> Change <code>Thread.sleep(3000)</code> to <code>Thread.sleep(5000)</code></p>
+                            </div>
+                        </div>
+                        
+                        <div class="exercise-solution">
+                            <button class="solution-toggle">Show Solution</button>
+                            <div class="solution-content" style="display: none;">
+                                <pre><code class="language-java">driver.get("https://www.selenium.dev");
+System.out.println("Page title is: " + driver.getTitle());
+System.out.println("Current URL is: " + driver.getCurrentUrl());
+Thread.sleep(5000);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adding More Functionality -->
+                <div class="lesson-section">
+                    <h2>Let's Add More Functionality</h2>
+                    <p>Now let's make our script actually search for something on Google:</p>
+                    
+                    <div class="code-example">
+                        <div class="code-header">
+                            <span>GoogleSearchScript.java</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i></button>
+                        </div>
+                        <pre><code class="language-java">package com.seleniumhub;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class GoogleSearchScript {
+    public static void main(String[] args) {
+        // Setup
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        
+        try {
+            // Navigate to Google
+            driver.get("https://www.google.com");
+            
+            // Find the search box using its name attribute
+            WebElement searchBox = driver.findElement(By.name("q"));
+            
+            // Type in the search box
+            searchBox.sendKeys("Selenium WebDriver");
+            
+            // Submit the search
+            searchBox.submit();
+            
+            // Wait to see results
+            Thread.sleep(3000);
+            
+            // Print the new page title
+            System.out.println("Results page title: " + driver.getTitle());
+            
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            driver.quit();
+        }
+    }
+}</code></pre>
+                    </div>
+
+                    <div class="new-concepts">
+                        <h4>New Concepts Introduced:</h4>
+                        <ul>
+                            <li><strong>WebElement:</strong> Represents an HTML element on the page</li>
+                            <li><strong>By.name():</strong> Locator strategy to find elements by name attribute</li>
+                            <li><strong>sendKeys():</strong> Types text into an input field</li>
+                            <li><strong>submit():</strong> Submits a form</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Practice Exercise 2 -->
+                <div class="lesson-section exercise-section">
+                    <h2><i class="fas fa-laptop-code"></i> Practice Exercise 2</h2>
+                    <div class="exercise-card">
+                        <h3>Search Different Sites</h3>
+                        <p>Create a new script that:</p>
+                        <ol>
+                            <li>Goes to Wikipedia (https://www.wikipedia.org)</li>
+                            <li>Finds the search box (hint: it has id="searchInput")</li>
+                            <li>Searches for "Selenium (software)"</li>
+                            <li>Prints the title of the results page</li>
+                        </ol>
+                        
+                        <div class="exercise-starter">
+                            <h4>Starter Code:</h4>
+                            <pre><code class="language-java">// Your imports here
+
+public class WikipediaSearch {
+    public static void main(String[] args) {
+        // Setup WebDriver
+        
+        // Navigate to Wikipedia
+        
+        // Find search box by ID
+        
+        // Search for "Selenium (software)"
+        
+        // Print results page title
+        
+        // Clean up
+    }
+}</code></pre>
+                        </div>
+                        
+                        <div class="exercise-solution">
+                            <button class="solution-toggle">Show Solution</button>
+                            <div class="solution-content" style="display: none;">
+                                <pre><code class="language-java">import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class WikipediaSearch {
+    public static void main(String[] args) {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        
+        try {
+            driver.get("https://www.wikipedia.org");
+            
+            WebElement searchBox = driver.findElement(By.id("searchInput"));
+            searchBox.sendKeys("Selenium (software)");
+            searchBox.submit();
+            
+            Thread.sleep(3000);
+            System.out.println("Results: " + driver.getTitle());
+            
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            driver.quit();
+        }
+    }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Common Issues -->
+                <div class="lesson-section">
+                    <h2>Troubleshooting Common Issues</h2>
+                    
+                    <div class="troubleshooting">
+                        <div class="issue">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Chrome opens but immediately closes</h4>
+                            <p><strong>Solution:</strong> Make sure you have <code>driver.quit()</code> in a finally block or add a longer sleep time.</p>
+                        </div>
+                        
+                        <div class="issue">
+                            <h4><i class="fas fa-exclamation-triangle"></i> "Cannot find symbol" error</h4>
+                            <p><strong>Solution:</strong> Check your imports. Make sure you've imported all necessary classes.</p>
+                        </div>
+                        
+                        <div class="issue">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Maven dependencies not downloading</h4>
+                            <p><strong>Solution:</strong> Right-click on project → Maven → Reload Project (or Update Project in Eclipse).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson Summary -->
+                <div class="lesson-section">
+                    <h2>Lesson Summary</h2>
+                    <div class="summary-box">
+                        <h3>What You've Learned:</h3>
+                        <ul>
+                            <li>✅ Set up a Maven project with Selenium dependencies</li>
+                            <li>✅ Used WebDriverManager to handle browser drivers</li>
+                            <li>✅ Created and ran your first Selenium script</li>
+                            <li>✅ Navigated to websites and interacted with elements</li>
+                            <li>✅ Found elements using By.name() and By.id()</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Next Steps -->
+                <div class="lesson-navigation">
+                    <button class="complete-lesson-btn" onclick="completeLesson()">
+                        <i class="fas fa-check-circle"></i> Mark Lesson Complete
+                    </button>
+                    
+                    <div class="nav-buttons">
+                        <a href="../index.html" class="nav-btn prev">
+                            <i class="fas fa-arrow-left"></i> Back to Path
+                        </a>
+                        <a href="../lesson2/index.html" class="nav-btn next" id="nextLessonBtn">
+                            Next Lesson <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Selenium Learning Hub. Keep learning!</p>
+        </div>
+    </footer>
+
+    <script src="../../../js/main.js"></script>
+    <script src="../../../js/lesson.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-xml-doc.min.js"></script>
+</body>
+</html>
