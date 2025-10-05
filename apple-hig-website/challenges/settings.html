@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge: Design a Settings Page - Apple HIG Tutorial</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/challenges.css">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.2 12.37 21.2C10.84 21.2 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="currentColor"/>
+                </svg>
+                <span>HIG Tutorial</span>
+            </a>
+            <div class="challenge-info">
+                <span class="challenge-badge">Challenge 1</span>
+                <span class="challenge-title">Design a Settings Page</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Challenge Container -->
+    <div class="challenge-container">
+        <div class="challenge-workspace">
+            <!-- Instructions Panel -->
+            <aside class="instructions-panel">
+                <h2>Challenge Brief</h2>
+                <div class="brief-content">
+                    <h3>Objective</h3>
+                    <p>Create a settings page that follows Apple's Human Interface Guidelines. Focus on clear organization, intuitive controls, and visual hierarchy.</p>
+                    
+                    <h3>Requirements</h3>
+                    <ul class="requirements-list">
+                        <li class="requirement" data-id="toggle">
+                            <span class="check-icon">○</span>
+                            Implement toggle switches for on/off settings
+                        </li>
+                        <li class="requirement" data-id="groups">
+                            <span class="check-icon">○</span>
+                            Group related settings together
+                        </li>
+                        <li class="requirement" data-id="hierarchy">
+                            <span class="check-icon">○</span>
+                            Use proper typography hierarchy
+                        </li>
+                        <li class="requirement" data-id="spacing">
+                            <span class="check-icon">○</span>
+                            Apply consistent spacing
+                        </li>
+                        <li class="requirement" data-id="interactive">
+                            <span class="check-icon">○</span>
+                            Make controls interactive and accessible
+                        </li>
+                    </ul>
+
+                    <h3>Design Guidelines</h3>
+                    <div class="guidelines">
+                        <div class="guideline">
+                            <h4>Toggle Switches</h4>
+                            <p>Use iOS-style toggle switches with smooth animations and clear on/off states.</p>
+                        </div>
+                        <div class="guideline">
+                            <h4>Grouping</h4>
+                            <p>Separate settings into logical groups with clear section headers.</p>
+                        </div>
+                        <div class="guideline">
+                            <h4>Descriptions</h4>
+                            <p>Add subtle descriptions for complex settings to improve clarity.</p>
+                        </div>
+                    </div>
+
+                    <h3>Starter Template</h3>
+                    <button class="btn btn-outline" onclick="loadStarterTemplate()">Load Template</button>
+                </div>
+            </aside>
+
+            <!-- Editor Area -->
+            <main class="editor-area">
+                <div class="editor-tabs">
+                    <button class="editor-tab active" data-tab="html">HTML</button>
+                    <button class="editor-tab" data-tab="css">CSS</button>
+                    <button class="editor-tab" data-tab="js">JavaScript</button>
+                </div>
+
+                <div class="editor-content">
+                    <div id="html-editor" class="code-editor active">
+                        <textarea id="html-input" placeholder="Write your HTML here..."><!-- Settings Page HTML -->
+<div class="settings-container">
+    <h1>Settings</h1>
+    
+    <!-- Add your settings groups here -->
+    
+</div></textarea>
+                    </div>
+
+                    <div id="css-editor" class="code-editor">
+                        <textarea id="css-input" placeholder="Write your CSS here...">/* Settings Page Styles */
+.settings-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Add your styles here */
+</textarea>
+                    </div>
+
+                    <div id="js-editor" class="code-editor">
+                        <textarea id="js-input" placeholder="Write your JavaScript here...">// Settings Page JavaScript
+
+// Add your interactive functionality here
+</textarea>
+                    </div>
+                </div>
+
+                <div class="editor-controls">
+                    <button class="btn btn-secondary" onclick="resetChallenge()">Reset</button>
+                    <button class="btn btn-primary" onclick="runCode()">Run Code</button>
+                </div>
+            </main>
+
+            <!-- Preview Panel -->
+            <section class="preview-panel">
+                <div class="preview-header">
+                    <h3>Preview</h3>
+                    <div class="device-selector">
+                        <button class="device-btn active" data-device="desktop">Desktop</button>
+                        <button class="device-btn" data-device="mobile">Mobile</button>
+                    </div>
+                </div>
+                
+                <div class="preview-frame" id="preview-frame">
+                    <iframe id="preview-iframe" src="about:blank"></iframe>
+                </div>
+
+                <div class="preview-actions">
+                    <button class="btn btn-outline" onclick="checkRequirements()">Check Requirements</button>
+                    <button class="btn btn-success" onclick="submitSolution()">Submit Solution</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Solution Modal (Hidden by default) -->
+    <div id="solution-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Example Solution</h2>
+            <p>Here's one way to implement a settings page following Apple's HIG:</p>
+            
+            <div class="solution-preview">
+                <img src="../images/settings-solution.png" alt="Settings page solution">
+            </div>
+            
+            <div class="solution-explanation">
+                <h3>Key Implementation Details:</h3>
+                <ul>
+                    <li><strong>Toggle Switches:</strong> Custom-styled checkboxes that mimic iOS toggles</li>
+                    <li><strong>Visual Hierarchy:</strong> Clear section headers with proper spacing</li>
+                    <li><strong>Grouping:</strong> Related settings are grouped with subtle backgrounds</li>
+                    <li><strong>Accessibility:</strong> Proper labels and keyboard navigation</li>
+                </ul>
+            </div>
+            
+            <button class="btn btn-primary" onclick="closeSolution()">Close</button>
+        </div>
+    </div>
+
+    <script src="../js/challenges.js"></script>
+</body>
+</html>

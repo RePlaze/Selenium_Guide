@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple HIG Design Tutorial - Learn Beautiful UI Design</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.2 12.37 21.2C10.84 21.2 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="currentColor"/>
+                </svg>
+                <span>HIG Tutorial</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#principles" class="nav-link">Principles</a></li>
+                <li><a href="#tutorials" class="nav-link">Tutorials</a></li>
+                <li><a href="#challenges" class="nav-link">Challenges</a></li>
+                <li><a href="#components" class="nav-link">Components</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Master Apple's Design Language</h1>
+            <p class="hero-subtitle">Learn to create beautiful, intuitive interfaces following Apple's Human Interface Guidelines</p>
+            <div class="hero-actions">
+                <button class="btn btn-primary">Start Learning</button>
+                <button class="btn btn-secondary">View Examples</button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="device-mockup">
+                <div class="device-screen">
+                    <div class="demo-card">
+                        <h3>Welcome</h3>
+                        <p>Your journey starts here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Principles Section -->
+    <section id="principles" class="section principles">
+        <div class="container">
+            <h2 class="section-title">Core Design Principles</h2>
+            <p class="section-subtitle">Apple's HIG is built on these fundamental concepts</p>
+            
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                            <path d="M24 14V34M14 24H34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Clarity</h3>
+                    <p>Text is legible, icons are precise, and the interface is streamlined.</p>
+                    <a href="#" class="principle-link">Learn more →</a>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Deference</h3>
+                    <p>The UI helps people understand content, not compete with it.</p>
+                    <a href="#" class="principle-link">Learn more →</a>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 8L32 16L24 24L16 16L24 8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M32 16V32L24 40L16 32V16" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Depth</h3>
+                    <p>Visual layers and realistic motion convey hierarchy.</p>
+                    <a href="#" class="principle-link">Learn more →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tutorials Section -->
+    <section id="tutorials" class="section tutorials">
+        <div class="container">
+            <h2 class="section-title">Interactive Tutorials</h2>
+            <p class="section-subtitle">Learn by doing with hands-on examples</p>
+            
+            <div class="tutorial-list">
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-number">01</span>
+                        <h3>Typography & Hierarchy</h3>
+                    </div>
+                    <p>Master Apple's typography system and create clear visual hierarchy.</p>
+                    <div class="tutorial-meta">
+                        <span class="difficulty">Beginner</span>
+                        <span class="duration">15 min</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="window.location.href='tutorials/typography.html'">Start Tutorial</button>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-number">02</span>
+                        <h3>Color & Contrast</h3>
+                    </div>
+                    <p>Use color meaningfully and ensure accessibility with proper contrast.</p>
+                    <div class="tutorial-meta">
+                        <span class="difficulty">Beginner</span>
+                        <span class="duration">20 min</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="window.location.href='tutorials/color.html'">Start Tutorial</button>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-number">03</span>
+                        <h3>Spacing & Layout</h3>
+                    </div>
+                    <p>Create balanced layouts with consistent spacing and alignment.</p>
+                    <div class="tutorial-meta">
+                        <span class="difficulty">Intermediate</span>
+                        <span class="duration">25 min</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="window.location.href='tutorials/spacing.html'">Start Tutorial</button>
+                </div>
+
+                <div class="tutorial-card">
+                    <div class="tutorial-header">
+                        <span class="tutorial-number">04</span>
+                        <h3>Interactive Elements</h3>
+                    </div>
+                    <p>Design buttons, forms, and controls that feel responsive and intuitive.</p>
+                    <div class="tutorial-meta">
+                        <span class="difficulty">Intermediate</span>
+                        <span class="duration">30 min</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="window.location.href='tutorials/interactive.html'">Start Tutorial</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Challenges Section -->
+    <section id="challenges" class="section challenges">
+        <div class="container">
+            <h2 class="section-title">Practice Challenges</h2>
+            <p class="section-subtitle">Test your skills with real-world design scenarios</p>
+            
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <div class="challenge-badge">Challenge 1</div>
+                    <h3>Design a Settings Page</h3>
+                    <p>Create a clean settings interface using toggles, lists, and proper grouping.</p>
+                    <div class="challenge-skills">
+                        <span class="skill-tag">Layout</span>
+                        <span class="skill-tag">Components</span>
+                        <span class="skill-tag">Hierarchy</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="window.location.href='challenges/settings.html'">Take Challenge</button>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-badge">Challenge 2</div>
+                    <h3>Create a Card Component</h3>
+                    <p>Build a versatile card component with proper shadows and spacing.</p>
+                    <div class="challenge-skills">
+                        <span class="skill-tag">Depth</span>
+                        <span class="skill-tag">Spacing</span>
+                        <span class="skill-tag">Typography</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="window.location.href='challenges/card.html'">Take Challenge</button>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-badge">Challenge 3</div>
+                    <h3>Design a Navigation Bar</h3>
+                    <p>Create a responsive navigation that works on all devices.</p>
+                    <div class="challenge-skills">
+                        <span class="skill-tag">Responsive</span>
+                        <span class="skill-tag">Navigation</span>
+                        <span class="skill-tag">Interaction</span>
+                    </div>
+                    <button class="btn btn-primary" onclick="window.location.href='challenges/navigation.html'">Take Challenge</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Showcase -->
+    <section id="components" class="section components">
+        <div class="container">
+            <h2 class="section-title">Component Library</h2>
+            <p class="section-subtitle">Ready-to-use components following Apple's design language</p>
+            
+            <div class="component-preview">
+                <div class="component-tabs">
+                    <button class="tab-button active" data-tab="buttons">Buttons</button>
+                    <button class="tab-button" data-tab="forms">Forms</button>
+                    <button class="tab-button" data-tab="cards">Cards</button>
+                    <button class="tab-button" data-tab="modals">Modals</button>
+                </div>
+                
+                <div class="component-content">
+                    <div id="buttons-content" class="tab-content active">
+                        <div class="component-demo">
+                            <button class="btn btn-primary">Primary Button</button>
+                            <button class="btn btn-secondary">Secondary Button</button>
+                            <button class="btn btn-outline">Outline Button</button>
+                            <button class="btn btn-text">Text Button</button>
+                        </div>
+                        <div class="component-code">
+                            <pre><code>&lt;button class="btn btn-primary"&gt;Primary Button&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Learn</h4>
+                    <ul>
+                        <li><a href="#principles">Design Principles</a></li>
+                        <li><a href="#tutorials">Tutorials</a></li>
+                        <li><a href="#challenges">Challenges</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Component Library</a></li>
+                        <li><a href="#">Color Palette</a></li>
+                        <li><a href="#">Typography Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Forums</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Apple HIG Tutorial. Built with love for beautiful design.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

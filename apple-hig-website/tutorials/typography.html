@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography & Hierarchy - Apple HIG Tutorial</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/tutorials.css">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.2 12.37 21.2C10.84 21.2 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" fill="currentColor"/>
+                </svg>
+                <span>HIG Tutorial</span>
+            </a>
+            <div class="tutorial-progress">
+                <span>Typography & Hierarchy</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tutorial Content -->
+    <div class="tutorial-container">
+        <aside class="tutorial-sidebar">
+            <h3>In this tutorial</h3>
+            <ul class="tutorial-nav">
+                <li><a href="#introduction" class="active">Introduction</a></li>
+                <li><a href="#font-system">Font System</a></li>
+                <li><a href="#hierarchy">Visual Hierarchy</a></li>
+                <li><a href="#readability">Readability</a></li>
+                <li><a href="#practice">Practice</a></li>
+            </ul>
+        </aside>
+
+        <main class="tutorial-content">
+            <section id="introduction" class="tutorial-section">
+                <h1>Typography & Hierarchy</h1>
+                <p class="lead">Typography is one of the most important elements in Apple's design language. Learn how to use fonts, sizes, and weights to create clear visual hierarchy.</p>
+                
+                <div class="key-points">
+                    <h3>What you'll learn</h3>
+                    <ul>
+                        <li>Apple's font system and when to use each weight</li>
+                        <li>Creating visual hierarchy with typography</li>
+                        <li>Best practices for readability</li>
+                        <li>Responsive typography techniques</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="font-system" class="tutorial-section">
+                <h2>Apple's Font System</h2>
+                <p>Apple uses the San Francisco (SF) font family across all platforms. It's designed to be highly legible at all sizes.</p>
+                
+                <div class="interactive-demo">
+                    <h3>Font Weights</h3>
+                    <div class="font-showcase">
+                        <div class="font-example" style="font-weight: 200;">
+                            <span class="weight-label">Ultralight (200)</span>
+                            <p>The quick brown fox jumps over the lazy dog</p>
+                        </div>
+                        <div class="font-example" style="font-weight: 300;">
+                            <span class="weight-label">Light (300)</span>
+                            <p>The quick brown fox jumps over the lazy dog</p>
+                        </div>
+                        <div class="font-example" style="font-weight: 400;">
+                            <span class="weight-label">Regular (400)</span>
+                            <p>The quick brown fox jumps over the lazy dog</p>
+                        </div>
+                        <div class="font-example" style="font-weight: 500;">
+                            <span class="weight-label">Medium (500)</span>
+                            <p>The quick brown fox jumps over the lazy dog</p>
+                        </div>
+                        <div class="font-example" style="font-weight: 600;">
+                            <span class="weight-label">Semibold (600)</span>
+                            <p>The quick brown fox jumps over the lazy dog</p>
+                        </div>
+                        <div class="font-example" style="font-weight: 700;">
+                            <span class="weight-label">Bold (700)</span>
+                            <p>The quick brown fox jumps over the lazy dog</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-example">
+                    <h3>Implementation</h3>
+                    <pre><code>/* Use system fonts for best performance */
+font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 
+             'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+/* Font weights */
+.ultralight { font-weight: 200; }
+.light      { font-weight: 300; }
+.regular    { font-weight: 400; }
+.medium     { font-weight: 500; }
+.semibold   { font-weight: 600; }
+.bold       { font-weight: 700; }</code></pre>
+                </div>
+            </section>
+
+            <section id="hierarchy" class="tutorial-section">
+                <h2>Creating Visual Hierarchy</h2>
+                <p>Use different font sizes and weights to guide users through your content.</p>
+                
+                <div class="interactive-demo">
+                    <h3>Type Scale</h3>
+                    <div class="type-scale">
+                        <div class="type-example">
+                            <span class="type-label">Display Large</span>
+                            <h1 style="font-size: 3rem; margin: 0;">Hello World</h1>
+                        </div>
+                        <div class="type-example">
+                            <span class="type-label">Display</span>
+                            <h2 style="font-size: 2.5rem; margin: 0;">Hello World</h2>
+                        </div>
+                        <div class="type-example">
+                            <span class="type-label">Title 1</span>
+                            <h3 style="font-size: 2rem; margin: 0;">Hello World</h3>
+                        </div>
+                        <div class="type-example">
+                            <span class="type-label">Title 2</span>
+                            <h4 style="font-size: 1.5rem; margin: 0;">Hello World</h4>
+                        </div>
+                        <div class="type-example">
+                            <span class="type-label">Title 3</span>
+                            <h5 style="font-size: 1.25rem; margin: 0;">Hello World</h5>
+                        </div>
+                        <div class="type-example">
+                            <span class="type-label">Body</span>
+                            <p style="font-size: 1rem; margin: 0;">Hello World</p>
+                        </div>
+                        <div class="type-example">
+                            <span class="type-label">Caption</span>
+                            <p style="font-size: 0.875rem; margin: 0;">Hello World</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="try-it-yourself">
+                    <h3>Try It Yourself</h3>
+                    <p>Edit the text below to see how different sizes create hierarchy:</p>
+                    <div class="editable-area" contenteditable="true">
+                        <h1>Main Heading</h1>
+                        <h3>Section Title</h3>
+                        <p>This is body text that provides the main content. It should be easy to read and not compete with headings.</p>
+                        <p style="font-size: 0.875rem; color: var(--color-text-secondary);">This is a caption providing additional context.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="readability" class="tutorial-section">
+                <h2>Optimizing for Readability</h2>
+                <p>Good typography ensures your content is easy to read and understand.</p>
+                
+                <div class="best-practices">
+                    <div class="practice-item">
+                        <h3>Line Height</h3>
+                        <div class="comparison">
+                            <div class="example bad">
+                                <span class="label">Too Tight (1.2)</span>
+                                <p style="line-height: 1.2;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                            <div class="example good">
+                                <span class="label">Just Right (1.5)</span>
+                                <p style="line-height: 1.5;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item">
+                        <h3>Line Length</h3>
+                        <div class="comparison">
+                            <div class="example bad">
+                                <span class="label">Too Wide</span>
+                                <p style="max-width: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                            </div>
+                            <div class="example good">
+                                <span class="label">Optimal (45-75 characters)</span>
+                                <p style="max-width: 65ch;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="practice-item">
+                        <h3>Contrast</h3>
+                        <div class="comparison">
+                            <div class="example bad">
+                                <span class="label">Poor Contrast</span>
+                                <p style="color: #999; background: #f0f0f0; padding: 1rem;">This text is hard to read due to low contrast.</p>
+                            </div>
+                            <div class="example good">
+                                <span class="label">Good Contrast</span>
+                                <p style="color: #333; background: #fff; padding: 1rem;">This text has proper contrast for readability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="practice" class="tutorial-section">
+                <h2>Practice Exercise</h2>
+                <p>Apply what you've learned by creating a typographic hierarchy for this content.</p>
+                
+                <div class="exercise">
+                    <div class="exercise-brief">
+                        <h3>Your Task</h3>
+                        <p>Style the following content using appropriate typography:</p>
+                        <ul>
+                            <li>Make the title prominent (use Display or Title 1)</li>
+                            <li>Create clear sections with Title 3</li>
+                            <li>Ensure body text is readable</li>
+                            <li>Add a subtle caption at the end</li>
+                        </ul>
+                    </div>
+
+                    <div class="exercise-workspace">
+                        <div class="code-editor">
+                            <h4>CSS</h4>
+                            <textarea id="css-input" spellcheck="false">/* Add your styles here */
+.article-title {
+    /* Your styles */
+}
+
+.section-heading {
+    /* Your styles */
+}
+
+.body-text {
+    /* Your styles */
+}
+
+.caption {
+    /* Your styles */
+}</textarea>
+                        </div>
+
+                        <div class="preview-area">
+                            <h4>Preview</h4>
+                            <div id="preview-content">
+                                <h1 class="article-title">Designing with Purpose</h1>
+                                
+                                <h3 class="section-heading">Understanding Your Users</h3>
+                                <p class="body-text">Great design starts with understanding who will use your product. Take time to research and empathize with your users' needs.</p>
+                                
+                                <h3 class="section-heading">Creating Solutions</h3>
+                                <p class="body-text">Once you understand the problem, focus on creating simple, elegant solutions that feel natural and intuitive.</p>
+                                
+                                <p class="caption">Published on October 5, 2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exercise-controls">
+                        <button class="btn btn-secondary" onclick="resetExercise()">Reset</button>
+                        <button class="btn btn-primary" onclick="checkSolution()">Check Solution</button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="tutorial-footer">
+                <a href="../index.html" class="btn btn-outline">← Back to Home</a>
+                <a href="color.html" class="btn btn-primary">Next: Color & Contrast →</a>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/tutorials.js"></script>
+</body>
+</html>
